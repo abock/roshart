@@ -1,0 +1,17 @@
+#shell {
+  background-image: url(wet_snow.png) !important;
+}
+
+body {
+	background-image: url(concrete_wall.png) !important;
+}
+
+#header {
+  background: #333 url(roxy.jpg) !important;
+  height: 440px !important;
+}
+
+#header h1 {
+  text-align: left !important;
+  padding: 20px 0 0 10px;
+}

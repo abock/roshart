@@ -1,0 +1,13 @@
+#shell {
+  background-image: url(hexellence.png) !important;
+}
+
+#header {
+  background: #333 url(cat.jpg) !important;
+  height: 440px !important;
+}
+
+#header h1 {
+  text-align: left !important;
+  padding: 20px 0 0 10px;
+}

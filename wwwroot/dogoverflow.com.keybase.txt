@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/abock
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://dogoverflow.com
+  * I am abock (https://keybase.io/abock) on keybase.
+  * I have a public key ASBwJHoqJPfxRPdsA8CrwAOxLFPCwUE3MBJkzALIUp3W8go
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010104a714634c5c6dea9007f340bbe58f9c3b5cd06fa8c7d450cefb874224f5cf640a",
+            "host": "keybase.io",
+            "kid": "012070247a2a24f7f144f76c03c0abc003b12c53c2c14137301264cc02c8529dd6f20a",
+            "uid": "df871f0020bf527431daa7ab552e1f19",
+            "username": "abock"
+        },
+        "service": {
+            "hostname": "dogoverflow.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1486759250,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1486759236,
+        "hash": "4d7ec4a747d45cc35a5607c8db9d838abd5a142e7319e1f5fc9f8fe8577ff5bbd42e502948d83cd8689bfedf7ffb43021271c54ae91afc3f977de278cbd17729",
+        "seqno": 872959
+    },
+    "prev": "d0a1cad436f4239f909b6308c506c2a5af486fb5e90e9831d76c22ea29e3d862",
+    "seqno": 21,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgcCR6KiT38UT3bAPAq8ADsSxTwsFBNzASZMwCyFKd1vIKp3BheWxvYWTFAvR7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMDRhNzE0NjM0YzVjNmRlYTkwMDdmMzQwYmJlNThmOWMzYjVjZDA2ZmE4YzdkNDUwY2VmYjg3NDIyNGY1Y2Y2NDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNzAyNDdhMmEyNGY3ZjE0NGY3NmMwM2MwYWJjMDAzYjEyYzUzYzJjMTQxMzczMDEyNjRjYzAyYzg1MjlkZDZmMjBhIiwidWlkIjoiZGY4NzFmMDAyMGJmNTI3NDMxZGFhN2FiNTUyZTFmMTkiLCJ1c2VybmFtZSI6ImFib2NrIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJkb2dvdmVyZmxvdy5jb20iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE4In0sImN0aW1lIjoxNDg2NzU5MjUwLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODY3NTkyMzYsImhhc2giOiI0ZDdlYzRhNzQ3ZDQ1Y2MzNWE1NjA3YzhkYjlkODM4YWJkNWExNDJlNzMxOWUxZjVmYzlmOGZlODU3N2ZmNWJiZDQyZTUwMjk0OGQ4M2NkODY4OWJmZWRmN2ZmYjQzMDIxMjcxYzU0YWU5MWFmYzNmOTc3ZGUyNzhjYmQxNzcyOSIsInNlcW5vIjo4NzI5NTl9LCJwcmV2IjoiZDBhMWNhZDQzNmY0MjM5ZjkwOWI2MzA4YzUwNmMyYTVhZjQ4NmZiNWU5MGU5ODMxZDc2YzIyZWEyOWUzZDg2MiIsInNlcW5vIjoyMSwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEAKKUCGCROGnuZ0HaIK3rThbSgOyZQkeLimEAc6uaRwwMTHZ+LW654O1zanb86tvI4fMHJmdLF7NXV5Xmkhw1MAqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgvEaF5i85N165DUs0ZPTfr9tpdNAJFHWs1aYhOYDktASjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/abock
+
+==================================================================
