@@ -60,6 +60,7 @@ namespace Roshart
                 endpoints.MapRazorPages();
                 endpoints.MapGet("/keybase.txt", HandleKeybase);
                 endpoints.MapGet("/api/query", HandleApiQuery);
+                endpoints.MapGet("/random", HandleRandom);
                 endpoints.MapGet("/{slug}", HandleShortUrl);
             });
         }
@@ -82,16 +83,16 @@ namespace Roshart
                 return;
             }
 
-            httpContext.Response.Headers.Add("Cache-Control", "no-store");
+            ConfigureNoCache(httpContext);
 
             IEnumerable<Shart> query = shartContext.Sharts;
-            
+
             httpContext.Request.Query.TryGetLastString("order", out var order);
 
             query = order.ToLowerInvariant() switch
             {
                 "asc" => query.OrderBy(shart => shart.Created),
-                "random" => query.OrderBy(shart => Guid.NewGuid()),
+                "random" => query.Shuffle(),
                 _ => query // default ordering is descending by timestamp, see ShartSniffer
             };
 
@@ -130,6 +131,22 @@ namespace Roshart
             }
         }
 
+        Task HandleRandom(HttpContext httpContext)
+        {
+            if (!httpContext.TryGetShartContext(out var shartContext))
+            {
+                httpContext.Response.StatusCode = 404;
+                return Task.CompletedTask;
+            }
+
+            ConfigureNoCache(httpContext);
+
+            return ServeShart(
+                httpContext,
+                shartContext.Sharts.Shuffle().First(),
+                redirect: true);
+        }
+
         async Task HandleShortUrl(HttpContext httpContext)
         {
             if (httpContext.Request.Path == "/favicon.ico")
@@ -149,9 +166,7 @@ namespace Roshart
                 {
                     if (shartContext.Sharts.TryGetShart(slug, out var shart))
                     {
-                        httpContext.Response.ContentType = "image/gif";
-                        httpContext.Response.ContentLength = shart.Length;
-                        await httpContext.Response.SendFileAsync(shart);
+                        await ServeShart(httpContext, shart, redirect: false);
                         return;
                     }
 
@@ -164,6 +179,28 @@ namespace Roshart
                         slug = slug.Substring(1);
                 }
             }
+        } 
+
+        static string GetShartUrl(HttpContext httpContext, Shart shart)
+            => $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/{shart.Name}";
+
+        static async Task ServeShart(HttpContext httpContext, Shart shart, bool redirect = true)
+        {
+            if (redirect && !httpContext.Request.Query.ContainsKey("no-redirect"))
+            {
+                httpContext.Response.StatusCode = 302;
+                httpContext.Response.Headers.Add("Location", GetShartUrl(httpContext, shart));
+            }
+            else
+            {
+                httpContext.Response.StatusCode = 200;
+                httpContext.Response.ContentType = "image/gif";
+                httpContext.Response.ContentLength = shart.Length;
+                await httpContext.Response.SendFileAsync(shart);
+            }
         }
+
+        static void ConfigureNoCache(HttpContext httpContext)
+            => httpContext.Response.Headers.Add("Cache-Control", "no-store");
     }
 }

@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace Roshart.Services
 {
@@ -11,6 +14,27 @@ namespace Roshart.Services
             foreach (var shart in sharts)
                 shartCollection.Add(shart);
             return shartCollection;
+        }
+
+        [ThreadStatic] static Random? random;
+        static Random Random
+            => random ?? (random = new Random(unchecked(
+                Environment.TickCount * 31
+                + Thread.CurrentThread.ManagedThreadId)));
+
+        public static IReadOnlyList<T> Shuffle<T>(this IEnumerable<T> enumerable)
+        {
+            var copy = enumerable.ToArray();
+            var n = copy.Length;
+            while (n > 1)
+            {
+                n--;
+                var index = Random.Next(n + 1);
+                var value = copy[index];
+                copy[index] = copy[n];
+                copy[n] = value;
+            }
+            return copy;
         }
     }
 
